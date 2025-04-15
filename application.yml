@@ -1,0 +1,35 @@
+spring:
+  profiles:
+    # Set to native to use a local filesystem/static url
+    active: git
+  cloud:
+    config:
+      server:
+        accept-empty: false
+        # See: https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_git_backend
+        git:
+          # The uri supports the following placeholders: {application}, {profile} & {label}
+          uri: "https://github.com/lavalink-devs/Lavalink-Example-Configs"
+          # set this to {application} if you group your configs by application
+          search-paths: '{application}'
+          skipSslValidation: false
+          timeout: 5
+          cloneOnStart: true
+          force-pull: false
+          deleteUntrackedBranches: false
+          refreshRate: 0
+          # username: trolley
+          # password: strongpassword
+          defaultLabel: master
+        # See: https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_file_system_backend
+        native:
+          searchLocations: "file:config/{application"
+
+server:
+  port: 8888
+  address: 127.0.0.1
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.config: DEBUG
