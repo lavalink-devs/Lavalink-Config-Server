@@ -5,6 +5,7 @@ spring:
   cloud:
     config:
       server:
+        # Set to true to allow empty config files to be accepted
         accept-empty: false
         # See: https://docs.spring.io/spring-cloud-config/docs/current/reference/html/#_git_backend
         git:
