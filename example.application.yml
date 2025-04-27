@@ -12,7 +12,7 @@ spring:
           # The uri supports the following placeholders: {application}, {profile} & {label}
           uri: "https://github.com/lavalink-devs/Lavalink-Example-Configs"
           # set this to {application} if you group your configs by application
-          search-paths: '{application}'
+          search-paths: "{application}"
           skipSslValidation: false
           timeout: 5
           cloneOnStart: true
