@@ -22,7 +22,7 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot:3.3.0")
-    implementation("org.springframework.cloud:spring-cloud-config-server:4.2.2")
+    implementation("org.springframework.cloud:spring-cloud-config-server:4.1.5")
     implementation("ch.qos.logback:logback-classic:1.5.6")
     implementation("org.springframework.boot:spring-boot-starter-web:3.3.0")
 }

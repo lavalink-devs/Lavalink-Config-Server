@@ -1,7 +1,7 @@
 spring:
   profiles:
     # Set to native to use a local filesystem/static url
-    active: git
+    active: native
   cloud:
     config:
       server:
