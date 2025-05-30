@@ -1,4 +1,4 @@
-FROM eclipse-temurin:21-jre-noble
+FROM eclipse-temurin:18-jre-jammy
 
 # Run as non-root user
 RUN addgroup -g 322 -S lavalink && \
