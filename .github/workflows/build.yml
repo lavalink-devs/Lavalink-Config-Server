@@ -34,6 +34,22 @@ jobs:
   build-docker:
     needs: build
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Ubuntu
+            dockerfile: docker/Dockerfile
+            suffix: ''
+            platforms: linux/amd64,linux/arm/v7,linux/arm64/v8
+          - name: Alpine
+            dockerfile: docker/alpine.Dockerfile
+            suffix: '-alpine'
+            platforms: linux/amd64,linux/arm64/v8
+          - name: Distroless
+            dockerfile: docker/distroless.Dockerfile
+            suffix: '-distroless'
+            platforms: linux/amd64,linux/arm64/v8
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -63,6 +79,8 @@ jobs:
         with:
           images: |
             ghcr.io/${{ github.repository }}
+          flavor: |
+            suffix=${{ matrix.suffix }},onlatest=true
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -74,9 +92,9 @@ jobs:
       - name: Docker Build ${{ matrix.name }} and Push
         uses: docker/build-push-action@v6
         with:
-          file: Dockerfile
+          file: ${{ matrix.dockerfile }}
           context: .
-          platforms: linux/amd64,linux/arm64/v8
+          platforms: ${{ matrix.platforms }}
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
