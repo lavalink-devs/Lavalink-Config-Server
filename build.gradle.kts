@@ -16,6 +16,11 @@ application {
     mainClass = "dev.lavalink.config.server.Launcher"
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 repositories {
     mavenCentral()
 }
@@ -25,6 +30,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-security:3.3.0")
     implementation("org.springframework.boot:spring-boot-starter-web:3.3.0")
     implementation("org.springframework.cloud:spring-cloud-config-server:4.1.5")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf:3.3.0")
     implementation("ch.qos.logback:logback-classic:1.5.6")
 }
 
