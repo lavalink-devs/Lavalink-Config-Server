@@ -4,9 +4,7 @@ WORKDIR /opt/Lavalink-Config-Server
 
 # Run as non-root user
 RUN addgroup -g 322 -S lavalink && \
-    adduser -u 322 -S lavalink lavalink && \
-    mkdir /home/lavalink/ && \
-	chown -R lavalink:lavalink /home/lavalink/ && \
+	adduser -u 322 -S lavalink lavalink && \
 	chown -R lavalink:lavalink /opt/Lavalink-Config-Server
 
 USER lavalink
