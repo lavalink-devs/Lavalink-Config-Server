@@ -3,8 +3,8 @@ FROM eclipse-temurin:18-jre-jammy
 WORKDIR /opt/Lavalink-Config-Server
 
 # Run as non-root user
-RUN addgroup -g 322 --system lavalink && \
-	adduser -u 322 -system lavalink lavalink && \
+RUN addgroup --gid 322 --system lavalink && \
+	adduser --uid 322 --system --gid 322 lavalink && \
 	chown -R lavalink:lavalink /opt/Lavalink-Config-Server
 
 USER lavalink
