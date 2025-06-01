@@ -1,6 +1,6 @@
 FROM gcr.io/distroless/java21-debian12:nonroot
 
-WORKDIR /opt/Lavalink
+WORKDIR /opt/Lavalink-Config-Server
 
 COPY build/libs/Lavalink-Config-Server.jar Lavalink-Config-Server.jar
 

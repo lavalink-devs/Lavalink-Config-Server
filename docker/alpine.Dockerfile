@@ -1,12 +1,13 @@
 FROM azul/zulu-openjdk-alpine:21-jre-headless-latest
 
-# Run as non-root user
-RUN addgroup -g 322 -S lavalink && \
-    adduser -u 322 -S lavalink lavalink
-
 WORKDIR /opt/Lavalink-Config-Server
 
-RUN chown -R lavalink:lavalink /opt/Lavalink-Config-Server
+# Run as non-root user
+RUN addgroup -g 322 -S lavalink && \
+    adduser -u 322 -S lavalink lavalink && \
+    mkdir /home/lavalink/ && \
+	chown -R lavalink:lavalink /home/lavalink/ && \
+	chown -R lavalink:lavalink /opt/Lavalink-Config-Server
 
 USER lavalink
 

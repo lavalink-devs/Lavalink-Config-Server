@@ -1,12 +1,13 @@
 FROM eclipse-temurin:18-jre-jammy
 
-# Run as non-root user
-RUN groupadd -g 322 lavalink && \
-    useradd -r -u 322 -g lavalink lavalink
-
 WORKDIR /opt/Lavalink-Config-Server
 
-RUN chown -R lavalink:lavalink /opt/Lavalink-Config-Server
+# Run as non-root user
+RUN groupadd -g 322 lavalink && \
+    useradd -r -u 322 -g lavalink lavalink && \
+  	mkdir /home/lavalink/ && \
+    chown -R lavalink:lavalink /home/lavalink/ && \
+    chown -R lavalink:lavalink /opt/Lavalink-Config-Server
 
 USER lavalink
 
