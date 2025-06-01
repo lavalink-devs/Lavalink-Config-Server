@@ -1,4 +1,12 @@
 spring:
+  security:
+    # Enable basic authentication for the config server
+    enabled: true
+    user:
+      # Set the username to access the config server
+      name: admin
+      # Set the password to access the config server
+      password: "youshallnotpass"
   profiles:
     # Set to native to use a local filesystem/static url
     active: native
