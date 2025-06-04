@@ -5,5 +5,5 @@ This enables you to have a centralized place to manage all your [Lavalink](https
 
 ## Docs
 
-For more information on how to use this project, please refer to the [Lavalink documentation](https://feature-remote-config.lavalink-bne.pages.dev/configuration/config/config-server.html).
+For more information on how to use this project, please refer to the [Lavalink documentation](https://dev.lavalink-bne.pages.dev/configuration/config/config-server.html).
 
